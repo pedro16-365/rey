@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tienda cristo rey</title>
+  <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css?family=Lobster|Pacifico|Montserrat&display=swap" rel="stylesheet">
+<style>
+  body {
+    background: linear-gradient(120deg, #fff8e1 0%, #ffe4e1 100%);
+  }
+  .bienvenida {
+    background: linear-gradient(90deg, #fffde4 60%, #ffe4e1 100%);
+    border: 2px solid #ffd54f;
+    box-shadow: 0 4px 24px rgba(255,193,7,0.08);
+    text-align: center;
+    border-radius: 18px;
+    margin: 2rem auto;
+    max-width: 700px;
+    position: relative;
+  }
+  .productos {
+    background: linear-gradient(90deg, #fff8e1 80%, #ffe4e1 100%);
+    border-radius: 18px;
+    box-shadow: 0 2px 16px rgba(229,57,53,0.07);
+    padding: 2rem;
+  }
+  .producto {
+    border: 2px solid #ff9800;
+    box-shadow: 0 4px 16px rgba(255,152,0,0.10);
+    transition: box-shadow 0.2s, border 0.2s;
+    position: relative;
+  }
+  .producto:hover {
+    border: 2px solid #ffd54f;
+    box-shadow: 0 8px 32px rgba(255,193,7,0.18);
+    background: #fffde4;
+    transform: scale(1.04);
+  }
+  .producto button {
+    background: linear-gradient(90deg, #e53935 60%, #ff9800 100%);
+    color: #fff;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(255,152,0,0.12);
+    transition: background 0.2s, color 0.2s;
+  }
+  .producto button:hover {
+    background: linear-gradient(90deg, #ffd54f 60%, #e53935 100%);
+    color: #e53935;
+  }
+  .ofertas-dia {
+    background: linear-gradient(90deg, #ffe4e1 80%, #fff8e1 100%);
+    border: 2px dashed #ff9800;
+  }
+  .testimonios {
+    border: 2px solid #ffd54f;
+    background: linear-gradient(90deg, #fffde4 80%, #ffe4e1 100%);
+  }
+  .faq, .suscripcion {
+    border: 2px solid #e53935;
+    background: linear-gradient(90deg, #fff8e1 80%, #ffe4e1 100%);
+  }
+  footer {
+    background: linear-gradient(90deg, #e53935 60%, #ff9800 100%);
+    color: #fff;
+    box-shadow: 0 -2px 16px rgba(229,57,53,0.09);
+    border-radius: 0 0 18px 18px;
+  }
+  h2, h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+  }
+  /* Eliminar el emoji de dinero volando */
+  h2::before {
+    content: '';
+    font-size: 1.2em;
+    color: #ff9800;
+  }
+  .ofertas-dia h2::before {
+    content: '\1F389'; /* ícono de confeti */
+    color: #e53935;
+  }
+  .testimonios h2::before {
+    content: '\1F60A'; /* ícono de sonrisa */
+    color: #ffd54f;
+  }
+  .faq h2::before {
+    content: '\2753'; /* ícono de pregunta */
+    color: #e53935;
+  }
+  .suscripcion h2::before {
+    content: '\1F4E7'; /* ícono de sobre */
+    color: #ff9800;
+  }
+  /* Creatividad extra: animación en el footer */
+  @keyframes footerWave {
+    0% {background-position:0% 50%;}
+    100% {background-position:100% 50%;}
+  }
+  footer {
+    background-size: 200% 200%;
+    animation: footerWave 8s linear infinite alternate;
+  }
+  /* Creatividad extra: sombra animada en testimonios */
+  .testimonios {
+    transition: box-shadow 0.5s;
+  }
+  .testimonios:hover {
+    box-shadow: 0 8px 32px rgba(255,193,7,0.18);
+  }
+  /* Creatividad extra: animación en botones de productos */
+  .producto button {
+    position: relative;
+    overflow: hidden;
+  }
+  .producto button::after {
+    content: '';
+    position: absolute;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background: rgba(255,255,255,0.15);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .producto button:hover::after {
+    opacity: 1;
+  }
+</style>
+</head>
+<body style="background-color: #f9f9f9; font-family: 'Montserrat', sans-serif;">
+  <header>
+    <div class="logo-tienda">
+      <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Logo profesional Cristo Rey" style="height: 60px; border-radius: 12px; box-shadow: 0 2px 8px rgba(229,57,53,0.12); background: #fff8e1; padding: 6px;" />
+      <h1 style="font-family: 'Montserrat', Arial, sans-serif; font-size: 2.3rem; font-weight: bold; margin: 0; letter-spacing: 2px; color: #e53935;">Bienvenido a Cristo Rey</h1>
+    </div>
+    <nav>
+      <a href="#">Inicio</a>
+      <a href="#productos">Productos</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="bienvenida" style="background: linear-gradient(90deg, #fffde4 60%, #ffe4e1 100%); border: 2px solid #ffd54f; box-shadow: 0 4px 24px rgba(255,193,7,0.08); text-align: center; border-radius: 18px; margin: 2rem auto; max-width: 700px; position: relative;">
+      <h2 style="font-family: 'Pacifico', cursive; font-size: 2.5rem; color: #e53935; margin-bottom: 0.5em; letter-spacing: 2px;">
+        <span style="display:inline-block;transform:rotate(-8deg);">🎉</span> ¡Bienvenido a mi tienda web <span style="color:#ff9800;">Cristo Rey</span>! <span style="display:inline-block;transform:rotate(8deg);">🎉</span>
+      </h2>
+      <p style="font-family: 'Montserrat', sans-serif; font-size: 1.3rem; color: #222; margin-bottom: 1em;">Donde encuentras calidad, ofertas y atención para tu familia.</p>
+      <div style="display:flex;justify-content:center;gap:2rem;margin-bottom:1em;">
+        <div style="background:#fff8e1;border-radius:12px;padding:1em 2em;box-shadow:0 2px 8px rgba(255,193,7,0.10);">
+          <span style="font-size:2em;">🛒</span><br><span style="color:#e53935;font-weight:bold;">Productos frescos</span>
+        </div>
+        <div style="background:#fff8e1;border-radius:12px;padding:1em 2em;box-shadow:0 2px 8px rgba(255,193,7,0.10);">
+          <span style="font-size:2em;">💰</span><br><span style="color:#ff9800;font-weight:bold;">Ofertas diarias</span>
+        </div>
+        <div style="background:#fff8e1;border-radius:12px;padding:1em 2em;box-shadow:0 2px 8px rgba(255,193,7,0.10);">
+          <span style="font-size:2em;">🤝</span><br><span style="color:#ffd54f;font-weight:bold;">Atención personalizada</span>
+        </div>
+      </div>
+      <span style="display:inline-block;background:#ffd54f;color:#e53935;padding:0.5em 1.2em;border-radius:20px;font-weight:bold;box-shadow:0 2px 8px rgba(255,193,7,0.10);font-size:1.1em;">¡Gracias por visitarnos!</span>
+    </section>
+
+    <section id="productos" class="productos" style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; padding: 2rem;">
+      <h2 style="width: 100%; text-align: center; font-family: 'Montserrat', sans-serif; color: #c62828; font-size: 2rem;">Productos destacados</h2>
+
+        <div class="producto">
+  <img src="https://plazavea.vteximg.com.br/arquivos/ids/27552451-429-429/641425.jpg" alt="arroz">
+  <h3>arroz </h3>
+  <p>S/. 3.50 kilo </p>
+  <a href="https://wa.me/51922894547?text=Quiero%20comprar%20arroz" target="_blank">
+          <button>Comprar</button>
+        </a>
+</div>
+
+<div class="producto">
+  <img src="https://plazavea.vteximg.com.br/arquivos/ids/30578637-512-512/20283176.jpg" alt="Azucar">
+  <h3>Azucar </h3>
+  <p>S/. 3.00</p>
+  <a href="https://wa.me/51922894547?text=Quiero%20comprar%20azucar" target="_blank">
+          <button>Comprar</button>
+        </a>
+</div>
+
+<div class="producto">
+  <img src="https://www.rosadito.com.pe/wp-content/uploads/2020/08/primor-bien.jpg" alt="Aceite 900 ML">
+  <h3>Aceite 900 ML </h3>
+  <p>S/. 11.00</p>
+  <a href="https://wa.me/51922894547?text=Quiero%20comprar%20aceite%201%20litro" target="_blank">
+          <button>Comprar</button>
+        </a>
+</div>
+
+<div class="producto">
+<img src="https://d20f60vzbd93dl.cloudfront.net/uploads/tienda_010816/tienda_010816_cea827ab057619a0b6ceb671100fd98a2549a481_producto_large_90.jpg?not-from-cache-please" alt="Gelatina">
+<h3>Gelatina </h3>
+<p>S/. 4.50</p>
+<a href="https://wa.me/51922894547?text=Quiero%20comprar%20gelatina" target="_blank">
+  <button>Comprar</button>
+</a>
+</div>
+
+<div class="producto">
+<img src="https://mimercado.delivery/cdn/shop/products/image-2713_2048x2048.jpg?v=1734315240" alt="Leche Gloria Lata Azul 400gr">
+<h3>Leche Gloria Lata Azul 400gr </h3>
+<p>S/. 4.80</p>
+<a href="https://wa.me/51922894547?text=Quiero%20comprar%20leche%20gloria%20lata%20azul%20400gr" target="_blank">
+  <button>Comprar</button>
+</a>
+</div>
+
+<div class="producto">
+<img src="https://plazavea.vteximg.com.br/arquivos/ids/30281223-1000-1000/20466441.jpg?v=638687987864700000" alt="Fideos tallarin LAVAGGI 950G">
+<h3>Fideos tallarin LAVAGGI 950G</h3>
+<p>S/. 3.00</p>
+<a href="https://wa.me/51922894547?text=Quiero%20comprar%20fideos%20tallarin%20lavaggi%20950g" target="_blank">
+  <button>Comprar</button>
+</a>
+</div>
+
+<div class="producto">
+<img src="https://dojiw2m9tvv09.cloudfront.net/53648/product/M_pixelup_16532691127740527.jpg?76&time=1758680392" alt="Avena Quaker tradicional bolsa 100 g">
+<h3>Avena Quaker tradicional bolsa 100 g</h3>
+<p>S/. 1.50</p>
+<a href="https://wa.me/51922894547?text=Quiero%20comprar%20avena%20quaker%20tradicional%20bolsa%20100g" target="_blank">
+  <button>Comprar</button>
+</a>
+</div>
+
+<div class="producto">
+<img src="https://www.rosadito.com.pe/wp-content/uploads/2020/10/HARINA-FAVORITA-250-GR.jpg" alt="Harina Favorita 250 GR">
+<h3>Harina Favorita 250 GR</h3>
+<p>S/. 1.20</p>
+<a href="https://wa.me/51922894547?text=Quiero%20comprar%20harina%20favorita%20250gr" target="_blank">
+  <button>Comprar</button>
+</a>
+</div>
+
+<div class="producto">
+<img src="https://media.falabella.com/tottusPE/41458532_1/w=800,h=800,fit=pad" alt="Sal Marina Mesa bolsa 1 kg ">
+<h3>Sal Marina Mesa bolsa 1 kg </h3>
+<p>S/. 1.50</p>
+<a href="https://wa.me/51922894547?text=Quiero%20comprar%20sal%20marina%20mesa%20bolsa%201kg" target="_blank">
+  <button>Comprar</button>
+</a>
+</div>
+
+    </section>
+    <section class="info-productos">
+  <h2>Detalles de nuestros productos</h2>
+
+  <article>
+    <h3>arroz de alta calidad </h3>
+    <p>Granos selectos ,blancos y rendidores ,ideales para tus comidas diarias .Suave ,delicioso y facil de preparar , perfecto para acompañar todo tipo de platos.</p>
+  </article>
+
+  <article>
+    <h3>Azucar refinada de calidad </h3>
+    <p>Dulzura natural para tus postres ,bebidas y preparaciones diarias.Producto puro ,de grano fino y facil disolucion ,ideal para darle el mejor sabor a tus recetas .</p>
+  </article>
+
+  <article>
+    <h3>Aceite vegetal de 900 ML </h3>
+    <p>aceite puro y rendidor , ideal para freir ,cocinar , y dar sabor a tus comidas .Presentacion de 1 litro que ofrece economia y practicidad para el hogar o negocio .</p>
+  </article>
+
+<article>
+  <h3>Gelatina en sobre </h3>
+  <p>Gelatina de sabor frutal, ideal para postres y bebidas. Presentación en sobre que facilita su preparación y uso.</p>
+</article>
+
+</article>
+<h3>Leche Gloria Lata Azul 400gr </h3>
+<p>Leche evaporada de alta calidad, ideal para cocinar y preparar bebidas. 
+<article>
+
+<article>
+  <h3>Fideos tallarin LAVAGGI 950G</h3>
+<p>Fideos de trigo de alta calidad, ideales para preparar platos deliciosos y nutritivos. Presentación de 950 gramos que rinde para varias porciones.</p>
+</article>
+
+</article>
+<h3>Avena Quaker tradicional bolsa 100 g</h3>
+<p>Avena integral de alta calidad, ideal para desayunos y recetas saludables. Presentación en bolsa de 100 gramos que conserva su frescura y sabor.</p>
+</article>
+
+</p>article>
+<h3>Harina Favorita 250 GR</h3>
+<p>Harina de trigo de alta calidad, ideal para repostería y panadería.
+</article>
+
+<article>
+<h3>Sal Marina Mesa bolsa 1 kg </h3>
+<p>Sal marina pura y natural, ideal para sazonar y conservar alimentos. Presentación en bolsa de 1 kg .</p>
+</article>
+
+</section>
+
+    <section class="ofertas-dia" style="background: #fff3f3; border: 2px dashed #e53935; border-radius: 16px; margin: 2rem auto; max-width: 700px; box-shadow: 0 2px 12px rgba(229,57,53,0.07); text-align: center; padding: 2rem 1rem;">
+      <h2 style="color: #e53935; font-family: 'Montserrat', Arial, sans-serif; font-size: 1.7rem; margin-bottom: 1em;">Ofertas del día</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center;">
+        <div style="background: #fff; border: 1px solid #e53935; border-radius: 10px; box-shadow: 0 2px 8px rgba(229,57,53,0.08); padding: 1rem; min-width: 180px;">
+          <h3 style="color: #e53935; font-size: 1.1rem; margin-bottom: 0.5em;">Arroz x 5kg</h3>
+          <p style="font-size: 1rem; color: #222;">S/. 16.00 <span style="color: #e53935; font-weight: bold;">¡Descuento!</span></p>
+        </div>
+        <div style="background: #fff; border: 1px solid #e53935; border-radius: 10px; box-shadow: 0 2px 8px rgba(229,57,53,0.08); padding: 1rem; min-width: 180px;">
+          <h3 style="color: #e53935; font-size: 1.1rem; margin-bottom: 0.5em;">Aceite 900ml</h3>
+          <p style="font-size: 1rem; color: #222;">S/. 9.50 <span style="color: #e53935; font-weight: bold;">¡Oferta especial!</span></p>
+        </div>
+        <div style="background: #fff; border: 1px solid #e53935; border-radius: 10px; box-shadow: 0 2px 8px rgba(229,57,53,0.08); padding: 1rem; min-width: 180px;">
+          <h3 style="color: #e53935; font-size: 1.1rem; margin-bottom: 0.5em;">Fideos Lavaggi 950g</h3>
+          <p style="font-size: 1rem; color: #222;">S/. 2.50 <span style="color: #e53935; font-weight: bold;">¡Solo hoy!</span></p>
+        </div>
+      </div>
+    </section>
+    <section id="contacto" class="contacto">
+      <h2>Contacto</h2>
+  <p>¿Tienes dudas o pedidos? Déjanos tu mensaje:</p>
+
+  <form action="#" method="post">
+    <input type="text" placeholder="Tu nombre" required>
+    <input type="email" placeholder="Tu correo" required>
+    <textarea placeholder="Tu mensaje" rows="4" required></textarea>
+    <button type="submit">Enviar</button>
+  </form>
+
+      <h2><i class="fas fa-phone"></i> Contáctanos</h2>
+<p><i class="fas fa-whatsapp"></i> +51 922894547</p>
+    </section>
+    <!-- Barra de búsqueda -->
+    <section style="text-align:center; margin-bottom: 2rem;">
+      <input type="text" id="busqueda" placeholder="Buscar productos..." style="width: 300px; padding: 0.7em; border-radius: 8px; border: 1px solid #e53935; font-size: 1rem;">
+    </section>
+
+    <!-- Separador visual -->
+    <hr style="border: none; border-top: 2px dashed #e53935; margin: 2rem 0;">
+
+    <!-- Testimonios -->
+    <section class="testimonios" style="background: #fff8e1; border-radius: 16px; max-width: 700px; margin: 2rem auto; box-shadow: 0 2px 12px rgba(229,57,53,0.07); padding: 2rem 1rem;">
+      <h2 style="color: #e53935; font-family: 'Montserrat', Arial, sans-serif; font-size: 1.5rem; margin-bottom: 1em;">Opiniones de nuestros clientes</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center;">
+        <div style="background: #fff; border-radius: 10px; box-shadow: 0 2px 8px rgba(229,57,53,0.08); padding: 1rem; min-width: 180px;">
+          <p style="font-size: 1rem; color: #222;">“Excelente atención y productos frescos. ¡Recomiendo la tienda!”</p>
+          <span style="color: #e53935; font-weight: bold;">- María</span>
+        </div>
+        <div style="background: #fff; border-radius: 10px; box-shadow: 0 2px 8px rgba(229,57,53,0.08); padding: 1rem; min-width: 180px;">
+          <p style="font-size: 1rem; color: #222;">“Muy buenos precios y entregas rápidas.”</p>
+          <span style="color: #e53935; font-weight: bold;">- Juan</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Separador visual -->
+    <hr style="border: none; border-top: 2px dashed #e53935; margin: 2rem 0;">
+
+    <!-- Preguntas frecuentes -->
+    <section class="faq" style="max-width:900px;margin:2rem auto;background:#fff8e1;border-radius:16px;padding:2rem;box-shadow:0 2px 12px rgba(229,57,53,0.07);">
+      <h2 style="color:#e53935;font-family:'Montserrat',Arial,sans-serif;font-size:1.7rem;margin-bottom:1em;">Preguntas frecuentes</h2>
+      <div style="text-align:left;max-width:700px;margin:auto;">
+        <p><strong>¿Cómo hago un pedido?</strong><br>Selecciona los productos y haz clic en comprar o escríbenos por WhatsApp.</p>
+        <p><strong>¿Cuáles son los métodos de pago?</strong><br>Aceptamos efectivo, Yape y transferencia bancaria.</p>
+        <p><strong>¿Realizan envíos?</strong><br>Sí, entregamos a domicilio en Paita y alrededores.</p>
+        <p><strong>¿Puedo recoger en tienda?</strong><br>Sí, puedes coordinar para recoger tu pedido.</p>
+      </div>
+    </section>
+
+    <!-- Formulario de suscripción -->
+    <section class="suscripcion" style="max-width:900px;margin:2rem auto;background:#fff8e1;border-radius:16px;padding:2rem;box-shadow:0 2px 12px rgba(229,57,53,0.07);text-align:center;">
+      <h2 style="color:#e53935;font-family:'Montserrat',Arial,sans-serif;font-size:1.7rem;margin-bottom:1em;">Recibe ofertas y novedades</h2>
+      <form action="#" method="post" style="display:flex;flex-direction:column;align-items:center;gap:1em;max-width:400px;margin:auto;">
+        <input type="email" placeholder="Tu correo electrónico" required style="width:100%;padding:0.7em;border-radius:8px;border:1px solid #e53935;font-size:1rem;">
+        <button type="submit" style="background:#e53935;color:#fff;border:none;padding:0.7em 1.5em;border-radius:8px;font-size:1.1rem;cursor:pointer;">Suscribirme</button>
+      </form>
+    </section>
+
+    <!-- Certificados y sellos de confianza -->
+    <section class="confianza" style="max-width:700px;margin:2rem auto;text-align:center;">
+      <h2 style="color:#e53935;font-family:'Montserrat',Arial,sans-serif;font-size:1.5rem;margin-bottom:1em;">Compra con confianza</h2>
+      <div style="display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;">
+        <div style="background:#fff8e1;border-radius:12px;padding:1em 2em;box-shadow:0 2px 8px rgba(255,193,7,0.10);display:flex;flex-direction:column;align-items:center;">
+          <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" alt="Compra segura" style="height:48px;margin-bottom:0.5em;">
+          <span style="color:#e53935;font-weight:bold;">Compra segura</span>
+        </div>
+        <div style="background:#fff8e1;border-radius:12px;padding:1em 2em;box-shadow:0 2px 8px rgba(255,193,7,0.10);display:flex;flex-direction:column;align-items:center;">
+          <img src="https://cdn-icons-png.flaticon.com/512/929/929426.png" alt="Pago protegido" style="height:48px;margin-bottom:0.5em;">
+          <span style="color:#ff9800;font-weight:bold;">Pago protegido</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Política de privacidad y términos -->
+    <footer>
+      <p>© 2025 tienda cristo rey | Hecho en Paita, Piura</p>
+      <div style="margin-top: 0.7em;">
+        <a href="https://facebook.com" target="_blank" style="margin: 0 0.5em;"><i class="fab fa-facebook fa-lg" style="color: #fff;"></i></a>
+        <a href="https://instagram.com" target="_blank" style="margin: 0 0.5em;"><i class="fab fa-instagram fa-lg" style="color: #fff;"></i></a>
+        <a href="https://wa.me/51922894547" target="_blank" style="margin: 0 0.5em;"><i class="fab fa-whatsapp fa-lg" style="color: #fff;"></i></a>
+      </div>
+      <div style="margin-top:1em;font-size:0.95em;">
+        <a href="#privacidad" style="color:#ffd54f;text-decoration:underline;margin-right:1em;">Política de privacidad</a>
+        <a href="#terminos" style="color:#ffd54f;text-decoration:underline;">Términos y condiciones</a>
+      </div>
+    </footer>
+
+    <!-- Sección de privacidad y términos -->
+    <section id="privacidad" style="background:#fff8e1;border-radius:16px;max-width:700px;margin:2rem auto;padding:2rem;box-shadow:0 2px 12px rgba(229,57,53,0.07);color:#222;">
+      <h2 style="color:#e53935;font-family:'Montserrat',Arial,sans-serif;font-size:1.3rem;margin-bottom:1em;">Política de privacidad</h2>
+      <p>Tu información personal está protegida y solo se usa para procesar tus pedidos y enviarte ofertas. No compartimos tus datos con terceros.</p>
+    </section>
+    <section id="terminos" style="background:#fff8e1;border-radius:16px;max-width:700px;margin:2rem auto;padding:2rem;box-shadow:0 2px 12px rgba(229,57,53,0.07);color:#222;">
+      <h2 style="color:#e53935;font-family:'Montserrat',Arial,sans-serif;font-size:1.3rem;margin-bottom:1em;">Términos y condiciones</h2>
+      <p>Al comprar en nuestra tienda aceptas nuestras políticas de entrega, pago y devolución. Para más información, contáctanos.</p>
+    </section>
+
+    <!-- Animación suave al cargar -->
+    <script>
+      document.body.style.opacity = 0;
+      window.onload = function() {
+        document.body.style.transition = 'opacity 1s';
+        document.body.style.opacity = 1;
+      };
+    </script>
+
+    <!-- Botón flotante de WhatsApp -->
+    <a href="https://wa.me/51922894547?text=Hola%20quiero%20más%20información" target="_blank" style="position: fixed; bottom: 24px; right: 24px; z-index: 9999;">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" style="height: 56px; box-shadow: 0 2px 8px rgba(229,57,53,0.18); border-radius: 50%">
+    </a>
+
+    <!-- Redes sociales en el footer -->
+    <footer>
+      <p>© 2025 tienda cristo rey | Hecho en Paita, Piura</p>
+      <div style="margin-top: 0.7em;">
+        <a href="https://facebook.com" target="_blank" style="margin: 0 0.5em;"><i class="fab fa-facebook fa-lg" style="color: #fff;"></i></a>
+        <a href="https://instagram.com" target="_blank" style="margin: 0 0.5em;"><i class="fab fa-instagram fa-lg" style="color: #fff;"></i></a>
+        <a href="https://wa.me/51922894547" target="_blank" style="margin: 0 0.5em;"><i class="fab fa-whatsapp fa-lg" style="color: #fff;"></i></a>
+      </div>
+      <div style="margin-top:1em;font-size:0.95em;">
+        <a href="#privacidad" style="color:#ffd54f;text-decoration:underline;margin-right:1em;">Política de privacidad</a>
+        <a href="#terminos" style="color:#ffd54f;text-decoration:underline;">Términos y condiciones</a>
+      </div>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+  <!-- Animación/efecto en productos y sistema de calificación -->
+    <script>
+      // Animación hover zoom en productos
+      document.querySelectorAll('.producto').forEach(function(card){
+        card.addEventListener('mouseenter',function(){card.style.transform='scale(1.04)';card.style.boxShadow='0 8px 32px rgba(229,57,53,0.18)';});
+        card.addEventListener('mouseleave',function(){card.style.transform='scale(1)';card.style.boxShadow='';});
+      });
+      // Calificación de productos
+      document.querySelectorAll('.producto').forEach(function(card){
+        var rating=document.createElement('div');
+        rating.innerHTML='<span style="color:#e53935;font-size:1.3em;cursor:pointer;">★ ★ ★ ★ ★</span>';
+        rating.title='Haz clic para calificar';
+        rating.style.marginTop='0.5em';
+        rating.onclick=function(){alert('¡Gracias por tu calificación!');};
+        card.appendChild(rating);
+      });
+      // Carrito de compras
+      var carrito=[];
+      document.querySelectorAll('.producto button').forEach(function(btn){
+        btn.onclick=function(e){
+          e.preventDefault();
+          var nombre=btn.parentElement.parentElement.querySelector('h3').textContent.trim();
+          carrito.push(nombre);
+          document.getElementById('carrito-lista').textContent='Productos: '+carrito.join(', ');
+          document.getElementById('vaciarCarrito').style.display='inline-block';
+        };
+      });
+      document.getElementById('vaciarCarrito').onclick=function(){
+        carrito=[];
+        document.getElementById('carrito-lista').textContent='No hay productos en el carrito.';
+        document.getElementById('vaciarCarrito').style.display='none';
+      };
+    </script>
+</body>
+</html>
+.info-productos {
+  padding: 2rem;
+  background-color: #e0f2f1;
+}
+
+.info-productos article {
+  margin-bottom: 1.5rem;
+}
+
+.info-productos h3 {
+  color: #00695c;
+  margin-bottom: 0.5rem;
+}
